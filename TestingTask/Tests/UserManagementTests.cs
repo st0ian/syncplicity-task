@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
-using TestingTask.Source.Pages;
+using TestingTask.Pages;
 
 namespace TestingTask.Tests
 {
@@ -11,8 +11,8 @@ namespace TestingTask.Tests
 
         public string randomMailGenerator()
         {
-            var randomName= new Random().Next();
-            string email = randomName+"@abv.bg";
+            var randomName = new Random().Next();
+            string email = randomName + "@abv.bg";
             return email;
         }
 
@@ -39,11 +39,9 @@ namespace TestingTask.Tests
             string email = randomMailGenerator();
             userManagementPage.emailField.SendKeys(email);
             userManagementPage.userRoleDropdown.Click();
-
-            IWebElement userRoleSelection = driver.FindElement(By.XPath($"//ul[@class='dropdown-menu roles-selector']/li[contains(text(), '{userRole}')]"));
-            userRoleSelection.Click();
-
+            userManagementPage.getUserRoleSelection(userRole).Click();
             userManagementPage.nextBtn.Click();
+
             userManagementPage.nextButtonMembership.Click();
 
             userManagementPage.checkDesktopOption.Click();
@@ -53,10 +51,9 @@ namespace TestingTask.Tests
             userManagementPage.userAccountsMenu.Click();
             Thread.Sleep(2000);
             userManagementPage.selectRowsPerPage500.Click();
-            IWebElement createdUser = driver.FindElement(By.XPath($"//a[text()='{email}']"));            
-            createdUser.Click();
+            userManagementPage.getCreatedUserElement(email).Click();
 
             Assert.That(userManagementPage.actualUserRole.Text, Is.EqualTo(userRole));
-        }     
+        }
     }
 }

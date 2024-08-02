@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using TestingTask.Constants;
 
-namespace TestingTask.Source.Pages
+namespace TestingTask.Pages
 {
     public class LoginPage
     {
