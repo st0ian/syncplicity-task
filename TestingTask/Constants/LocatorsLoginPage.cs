@@ -3,11 +3,11 @@ namespace TestingTask.Constants
 {
     public class LocatorsLoginPage
     {
-        public const string emailFieldId = "MainContent_login_UserName";
-        public const string passwordFieldId = "MainContent_login_txtPassword";
-        public const string nextButtonId = "MainContent_login_btnNext";
-        public const string loginButtonId = "MainContent_login_btnLogin";
-        public const string emailFieldValidationErrorId = "MainContent_login_UserName-error";
-        public const string errorBannerId = "SystemMessageContent_statusMessage";
+        public const string emailFieldLocator = "MainContent_login_UserName";
+        public const string passwordFieldLocator = "MainContent_login_txtPassword";
+        public const string nextButtonLocator = "MainContent_login_btnNext";
+        public const string loginButtonLocator = "MainContent_login_btnLogin";
+        public const string emailFieldValidationErrorLocator = "MainContent_login_UserName-error";
+        public const string errorBannerLocator = "SystemMessageContent_statusMessage";
     }
 }

@@ -13,7 +13,7 @@ namespace TestingTask.Tests
         {
             loginPage = new LoginPage(driver);
             userManagementPage = new UserManagementPage(driver);
-            loginPage.login();
+            loginPage.Login(loginPage.validEmail, loginPage.validPassword);
         }
 
         //there is redundant whitespace before eDiscovery Administrator role in <li text
@@ -25,34 +25,27 @@ namespace TestingTask.Tests
         [TestCase("API User")]
         public void CreateUser(string userRole)
         {
-            userManagementPage.userAccountsMenu.Click();
-            userManagementPage.addUserBtn.Click();
+            userManagementPage.UserAccountsMenu.Click();
+            userManagementPage.AddUserBtn.Click();
 
-            string email = randomMailGenerator();
-            userManagementPage.emailField.SendKeys(email);
-            userManagementPage.userRoleDropdown.Click();
-            userManagementPage.getUserRoleSelection(userRole).Click();
-            userManagementPage.nextBtn.Click();
+            string email = HelperMethods.RandomMailGenerator();
+            userManagementPage.EmailField.SendKeys(email);
+            userManagementPage.UserRoleDropdown.Click();
+            userManagementPage.GetUserRoleSelection(userRole).Click();
+            userManagementPage.NextBtn.Click();
 
-            userManagementPage.nextButtonMembership.Click();
+            userManagementPage.NextButtonMembership.Click();
 
-            userManagementPage.checkDesktopOption.Click();
-            userManagementPage.nextButtonFolders.Click();
+            userManagementPage.CheckDesktopOption.Click();
+            userManagementPage.NextButtonFolders.Click();
 
             //assert that user is created with correct role in the User Table            
-            userManagementPage.userAccountsMenu.Click();
+            userManagementPage.UserAccountsMenu.Click();
             Thread.Sleep(2000);
-            userManagementPage.selectRowsPerPage500.Click();
-            userManagementPage.getCreatedUserElement(email).Click();
+            userManagementPage.SelectRowsPerPage500.Click();
+            userManagementPage.GetCreatedUserElement(email).Click();
 
-            Assert.That(userManagementPage.actualUserRole.Text, Is.EqualTo(userRole));
-        }
-
-        private string randomMailGenerator()
-        {
-            var randomName = new Random().Next();
-            string email = randomName + "@abv.bg";
-            return email;
+            Assert.That(userManagementPage.ActualUserRole.Text, Is.EqualTo(userRole));
         }
     }
 }

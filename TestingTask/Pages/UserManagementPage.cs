@@ -13,24 +13,24 @@ namespace TestingTask.Pages
         }
 
         public IWebElement SubMenues => driver.FindElement(By.ClassName(LocatorsUserManagementPage.subMenuesLocator));
-        public IWebElement userAccountsMenu => SubMenues.FindElement(By.LinkText(LocatorsUserManagementPage.userAccountsMenuLocator));
-        public IWebElement addUserBtn => driver.FindElement(By.LinkText(LocatorsUserManagementPage.addUserBtnLocator));
-        public IWebElement emailField => driver.FindElement(By.Id(LocatorsUserManagementPage.emailFieldLocator));
-        public IWebElement userRoleDropdown => driver.FindElement(By.Id(LocatorsUserManagementPage.userRoleDropdownLocator));
-        public IWebElement nextBtn => driver.FindElement(By.Id(LocatorsUserManagementPage.nextBtnLocator));
-        public IWebElement nextButtonMembership => driver.FindElement(By.Id(LocatorsUserManagementPage.nextButtonMembershipLocator));
-        public IWebElement checkDesktopOption => driver.FindElement(By.Id(LocatorsUserManagementPage.checkDesktopOptionLocator));
-        public IWebElement nextButtonFolders => driver.FindElement(By.Id(LocatorsUserManagementPage.nextButtonFoldersLocator));
-        public IWebElement actualUserRole => driver.FindElement(By.ClassName(LocatorsUserManagementPage.actualUserRoleLocator));
-        public IWebElement selectRowsPerPage500 => driver.FindElement(By.XPath(LocatorsUserManagementPage.selectRowsPerPage500Locator));
+        public IWebElement UserAccountsMenu => SubMenues.FindElement(By.LinkText(LocatorsUserManagementPage.userAccountsMenuLocator));
+        public IWebElement AddUserBtn => driver.FindElement(By.LinkText(LocatorsUserManagementPage.addUserBtnLocator));
+        public IWebElement EmailField => driver.FindElement(By.Id(LocatorsUserManagementPage.emailFieldLocator));
+        public IWebElement UserRoleDropdown => driver.FindElement(By.Id(LocatorsUserManagementPage.userRoleDropdownLocator));
+        public IWebElement NextBtn => driver.FindElement(By.Id(LocatorsUserManagementPage.nextBtnLocator));
+        public IWebElement NextButtonMembership => driver.FindElement(By.Id(LocatorsUserManagementPage.nextButtonMembershipLocator));
+        public IWebElement CheckDesktopOption => driver.FindElement(By.Id(LocatorsUserManagementPage.checkDesktopOptionLocator));
+        public IWebElement NextButtonFolders => driver.FindElement(By.Id(LocatorsUserManagementPage.nextButtonFoldersLocator));
+        public IWebElement ActualUserRole => driver.FindElement(By.ClassName(LocatorsUserManagementPage.actualUserRoleLocator));
+        public IWebElement SelectRowsPerPage500 => driver.FindElement(By.XPath(LocatorsUserManagementPage.selectRowsPerPage500Locator));
 
-        public IWebElement getUserRoleSelection(string userRole)
+        public IWebElement GetUserRoleSelection(string userRole)
         {
             IWebElement userRoleSelection = driver.FindElement(By.XPath($"//ul[@class='dropdown-menu roles-selector']/li[contains(text(), '{userRole}')]"));
             return userRoleSelection;
         }
 
-        public IWebElement getCreatedUserElement(string email)
+        public IWebElement GetCreatedUserElement(string email)
         {
             IWebElement createdUser = driver.FindElement(By.XPath($"//a[text()='{email}']"));
             return createdUser;

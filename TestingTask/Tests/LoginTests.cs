@@ -17,11 +17,11 @@ namespace TestingTask.Tests
         [Test]
         public void WhenLoginWithValidCredentialsThenSuccess()
         {
-            loginPage.loginFieldEmail.SendKeys(loginPage.validEmail);
-            loginPage.nextButton.Click();
+            loginPage.LoginFieldEmail.SendKeys(loginPage.validEmail);
+            loginPage.NextButton.Click();
 
-            loginPage.loginFieldPassword.SendKeys(loginPage.validPassword);
-            loginPage.loginButton.Click();
+            loginPage.LoginFieldPassword.SendKeys(loginPage.validPassword);
+            loginPage.LoginButton.Click();
 
             var logedUserInfo = driver.FindElement(By.Id("loginView1_liUserTitle")).Text;
             Assert.That(logedUserInfo.Contains("Firstname Lastname"));
@@ -32,11 +32,11 @@ namespace TestingTask.Tests
         [Test]
         public void WhenLoginWithInvalidEmailThenValidationError()
         {
-            loginPage.loginFieldEmail.SendKeys("wrongEmail");
+            loginPage.LoginFieldEmail.SendKeys("wrongEmail");
 
-            loginPage.nextButton.Click();
+            loginPage.NextButton.Click();
 
-            var emailValidationErrorText = loginPage.emailFieldValidationError.Text;
+            var emailValidationErrorText = loginPage.EmailFieldValidationError.Text;
 
             Assert.That(emailValidationErrorText, Is.EqualTo("Please enter a valid email address."));
             Assert.That(driver.Url, Is.EqualTo(baseUrl));
@@ -45,13 +45,13 @@ namespace TestingTask.Tests
         [Test]
         public void WhenLoginWithWrongPasswordThenError()
         {
-            loginPage.loginFieldEmail.SendKeys(loginPage.validEmail);
-            loginPage.nextButton.Click();
+            loginPage.LoginFieldEmail.SendKeys(loginPage.validEmail);
+            loginPage.NextButton.Click();
 
-            loginPage.loginFieldPassword.SendKeys("proba");
-            loginPage.loginButton.Click();
+            loginPage.LoginFieldPassword.SendKeys("proba");
+            loginPage.LoginButton.Click();
 
-            var errorText = loginPage.errorBanner.Text;
+            var errorText = loginPage.ErrorBanner.Text;
             Assert.That(errorText, Is.EqualTo("Invalid email or password. Please try again."));
             Assert.That(driver.Url, Is.EqualTo(baseUrl));
         }

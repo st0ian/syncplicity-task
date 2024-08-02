@@ -15,28 +15,20 @@ namespace TestingTask.Pages
         }
 
 
-        public IWebElement loginFieldEmail => driver.FindElement(By.Id(LocatorsLoginPage.emailFieldId));
+        public IWebElement LoginFieldEmail => driver.FindElement(By.Id(LocatorsLoginPage.emailFieldLocator));
+        public IWebElement NextButton => driver.FindElement(By.Id(LocatorsLoginPage.nextButtonLocator));
+        public IWebElement LoginFieldPassword => driver.FindElement(By.Id(LocatorsLoginPage.passwordFieldLocator));
+        public IWebElement LoginButton => driver.FindElement(By.Id(LocatorsLoginPage.loginButtonLocator));
+        public IWebElement EmailFieldValidationError => driver.FindElement(By.Id(LocatorsLoginPage.emailFieldValidationErrorLocator));
+        public IWebElement ErrorBanner => driver.FindElement(By.Id(LocatorsLoginPage.errorBannerLocator)).FindElement(By.XPath(".//li"));
 
 
-        public IWebElement nextButton => driver.FindElement(By.Id(LocatorsLoginPage.nextButtonId));
-
-
-        public IWebElement loginFieldPassword => driver.FindElement(By.Id(LocatorsLoginPage.passwordFieldId));
-
-
-        public IWebElement loginButton => driver.FindElement(By.Id(LocatorsLoginPage.loginButtonId));
-
-        public IWebElement emailFieldValidationError => driver.FindElement(By.Id(LocatorsLoginPage.emailFieldValidationErrorId));
-
-        public IWebElement errorBanner => driver.FindElement(By.Id(LocatorsLoginPage.errorBannerId)).FindElement(By.XPath(".//li"));
-
-
-        public void login()
+        public void Login(string email, string password)
         {
-            loginFieldEmail.SendKeys(validEmail);
-            nextButton.Click();
-            loginFieldPassword.SendKeys(validPassword);
-            loginButton.Click();
+            LoginFieldEmail.SendKeys(email);
+            NextButton.Click();
+            LoginFieldPassword.SendKeys(password);
+            LoginButton.Click();
         }
     }
 }
