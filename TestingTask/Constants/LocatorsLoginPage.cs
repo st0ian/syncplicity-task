@@ -1,7 +1,7 @@
 ﻿
 namespace TestingTask.Constants
 {
-    public class Locators
+    public class LocatorsLoginPage
     {
         public const string emailFieldId = "MainContent_login_UserName";
         public const string passwordFieldId = "MainContent_login_txtPassword";

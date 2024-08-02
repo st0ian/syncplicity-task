@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
-using TestingTask.Source.Pages;
+using TestingTask.Pages;
 
 namespace TestingTask.Tests
 {
@@ -19,6 +19,7 @@ namespace TestingTask.Tests
         {
             loginPage.loginFieldEmail.SendKeys(loginPage.validEmail);
             loginPage.nextButton.Click();
+
             loginPage.loginFieldPassword.SendKeys(loginPage.validPassword);
             loginPage.loginButton.Click();
 
@@ -46,6 +47,7 @@ namespace TestingTask.Tests
         {
             loginPage.loginFieldEmail.SendKeys(loginPage.validEmail);
             loginPage.nextButton.Click();
+
             loginPage.loginFieldPassword.SendKeys("proba");
             loginPage.loginButton.Click();
 

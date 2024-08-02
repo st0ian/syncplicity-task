@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using OpenQA.Selenium;
 using TestingTask.Pages;
 
 namespace TestingTask.Tests
@@ -8,13 +7,6 @@ namespace TestingTask.Tests
     {
         LoginPage loginPage;
         UserManagementPage userManagementPage;
-
-        public string randomMailGenerator()
-        {
-            var randomName = new Random().Next();
-            string email = randomName + "@abv.bg";
-            return email;
-        }
 
         [SetUp]
         public void Initialize()
@@ -54,6 +46,13 @@ namespace TestingTask.Tests
             userManagementPage.getCreatedUserElement(email).Click();
 
             Assert.That(userManagementPage.actualUserRole.Text, Is.EqualTo(userRole));
+        }
+
+        private string randomMailGenerator()
+        {
+            var randomName = new Random().Next();
+            string email = randomName + "@abv.bg";
+            return email;
         }
     }
 }

@@ -15,20 +15,20 @@ namespace TestingTask.Pages
         }
 
 
-        public IWebElement loginFieldEmail => driver.FindElement(By.Id(Locators.emailFieldId));
+        public IWebElement loginFieldEmail => driver.FindElement(By.Id(LocatorsLoginPage.emailFieldId));
 
 
-        public IWebElement nextButton => driver.FindElement(By.Id(Locators.nextButtonId));
+        public IWebElement nextButton => driver.FindElement(By.Id(LocatorsLoginPage.nextButtonId));
 
 
-        public IWebElement loginFieldPassword => driver.FindElement(By.Id(Locators.passwordFieldId));
+        public IWebElement loginFieldPassword => driver.FindElement(By.Id(LocatorsLoginPage.passwordFieldId));
 
 
-        public IWebElement loginButton => driver.FindElement(By.Id(Locators.loginButtonId));
+        public IWebElement loginButton => driver.FindElement(By.Id(LocatorsLoginPage.loginButtonId));
 
-        public IWebElement emailFieldValidationError => driver.FindElement(By.Id(Locators.emailFieldValidationErrorId));
+        public IWebElement emailFieldValidationError => driver.FindElement(By.Id(LocatorsLoginPage.emailFieldValidationErrorId));
 
-        public IWebElement errorBanner => driver.FindElement(By.Id(Locators.errorBannerId)).FindElement(By.XPath(".//li"));
+        public IWebElement errorBanner => driver.FindElement(By.Id(LocatorsLoginPage.errorBannerId)).FindElement(By.XPath(".//li"));
 
 
         public void login()
